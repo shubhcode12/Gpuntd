@@ -1,6 +1,29 @@
 <resources>
     <string name="app_name">Gpuntd</string>
+
+
+    <!--Bottom Navigation    -->
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_offers">Offers</string>
+    <string name="title_passbook">Passbook</string>
+    <string name="title_ids">IDs</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!--Navigation Drawer-->
+    <string name="drawer_profile">Profile</string>
+    <string name="drawer_withdrawal_details">Withdrawal Details</string>
+    <string name="drawer_creat_id">Creat ID</string>
+    <string name="drawer_refer_amp_earn"><![CDATA[Refer & Earn]]></string>
+    <string name="drawer_terms">Terms</string>
+    <string name="drawer_notifications">Notifications</string>
+    <string name="drawer_help">Help</string>
+    <string name="drawer_how_to_use">How To USe</string>
+    <string name="drawer_logout">Logout</string>
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
 </resources>

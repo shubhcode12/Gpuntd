@@ -1,28 +1,25 @@
-package com.gpuntd.app.ui.home;
+package com.gpuntd.app.ui.offers;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.gpuntd.app.R;
-import com.gpuntd.app.databinding.FragmentHomeBinding;
+import com.gpuntd.app.databinding.FragmentOffersBinding;
 
-public class HomeFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+public class OffersFragment extends Fragment {
+
+    FragmentOffersBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentOffersBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
 

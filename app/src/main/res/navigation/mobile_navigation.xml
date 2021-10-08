@@ -12,14 +12,21 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.gpuntd.app.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_offers"
+        android:name="com.gpuntd.app.ui.offers.OffersFragment"
+        android:label="@string/title_offers"
+        tools:layout="@layout/fragment_offers" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.gpuntd.app.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_passbook"
+        android:name="com.gpuntd.app.ui.passbook.PassbookFragment"
+        android:label="@string/title_passbook"
+        tools:layout="@layout/fragment_passbook" />
+
+    <fragment
+        android:id="@+id/navigation_ids"
+        android:name="com.gpuntd.app.ui.ids.IdsFragment"
+        android:label="@string/title_ids"
+        tools:layout="@layout/fragment_ids"
+        />
 </navigation>
