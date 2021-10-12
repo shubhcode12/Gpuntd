@@ -3,12 +3,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".ui.ids.IdsFragment">
 
-    <Button
-        android:text="IDS"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My ID" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create ID" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/searchView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tabLayout"
+        android:layout_margin="20dp"
+        android:drawableRight="@drawable/ic_search"
+        android:hint="Search" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMyID"
+        android:visibility="gone"
+        android:background="#2196F3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCreateID"
+        android:visibility="gone"
+        tools:listitem="@layout/adapter_create_id_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rvMyID"
+        android:background="#0e0c0d" />
+
 
 </RelativeLayout>
