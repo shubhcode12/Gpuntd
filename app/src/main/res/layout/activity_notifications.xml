@@ -17,6 +17,7 @@
             <androidx.appcompat.widget.Toolbar
                 app:navigationIcon="@drawable/ic_arrow_left"
                 android:id="@+id/toolbarNoti"
+                app:title="Notifications"
                 android:background="@color/colorPrimary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
