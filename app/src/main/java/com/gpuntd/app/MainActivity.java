@@ -1,5 +1,6 @@
 package com.gpuntd.app;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -70,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.action_withdrawDetails:
                 Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_notification:
+                startActivity(new Intent(MainActivity.this, NotificationsActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
