@@ -65,7 +65,7 @@
         app:headerLayout="@layout/nav_header_main"
         app:itemTextColor="@color/black"
         app:itemIconTint="@color/black"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/menu_drawer" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

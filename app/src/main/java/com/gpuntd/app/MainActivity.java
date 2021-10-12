@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
     Toolbar toolbar;
     DrawerLayout drawerLayout;
+    NavController navController;
 
 
     @Override
@@ -55,9 +56,38 @@ public class MainActivity extends AppCompatActivity {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_offers, R.id.navigation_passbook, R.id.navigation_ids)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        binding.navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.drawer_profile:
+                        break;
+                    case R.id.drawer_withdrawalDetails:
+                        break;
+                    case R.id.drawer_create_id:
+                        navController.navigate(R.id.navigation_ids);
+                        break;
+                    case R.id.drawer_refer:
+                        break;
+                    case R.id.drawer_terms:
+                        break;
+                    case R.id.drawer_help:
+                        break;
+                    case R.id.drawer_howto:
+                        break;
+
+                    case R.id.drawer_logout:
+                        break;
+
+                }
+                return false;
+            }
+        });
+
     }
 
     @Override
@@ -70,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_withdrawDetails:
+                navController.navigate(R.id.navigation_ids);
                 Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_notification:
@@ -84,4 +115,6 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
         actionBarDrawerToggle.onConfigurationChanged(newConfig);
     }
+
+
 }
