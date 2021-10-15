@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_withdrawDetails:
-                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                startActivity(new Intent(MainActivity.this, WithdrawDetailsActivity.class));
                // navController.navigate(R.id.navigation_ids);
                 Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
                 break;
