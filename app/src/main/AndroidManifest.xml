@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gpuntd">
         <activity
+            android:name=".LoginPageActivity"
+            android:exported="true" />
+        <activity
             android:name=".ReferAndEarnActivity"
             android:exported="true" />
         <activity

@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(LoginActivity.this, R.layout.activity_login);
 
         binding.btnLogin.setOnClickListener(view -> {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, LoginPageActivity.class));
             finish();
         });
 
