@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gpuntd">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".NotificationsActivity"
             android:exported="true" />
         <activity
