@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gpuntd">
         <activity
+            android:name=".OtpLoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".LoginPageActivity"
             android:exported="true" />
         <activity
