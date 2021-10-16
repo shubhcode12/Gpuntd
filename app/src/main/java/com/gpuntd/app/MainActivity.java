@@ -166,5 +166,11 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    public void goToPassbook(){
+        Toast.makeText(MainActivity.this, "", Toast.LENGTH_SHORT).show();
+        navController.navigate(R.id.navigation_passbook);
+
+    }
+
 
 }

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.gpuntd.app.MainActivity;
 import com.gpuntd.app.R;
 import com.gpuntd.app.databinding.FragmentHomeBinding;
 
@@ -19,13 +20,17 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        binding.walletBalSection.setOnClickListener(view -> {
+            ((MainActivity) getActivity()).goToPassbook();
 
+        });
         return root;
     }
 
