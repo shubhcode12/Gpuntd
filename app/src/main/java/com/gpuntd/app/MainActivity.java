@@ -3,7 +3,6 @@ package com.gpuntd.app;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -11,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -22,8 +19,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -151,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void setupLogoutDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.logout_dialog, findViewById(R.id.logoutView));
+        View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.dialog_logout, findViewById(R.id.logoutView));
         builder.setView(view);
         final AlertDialog alertDialog = builder.create();
         view.findViewById(R.id.btnLogoutDialog).setOnClickListener(view1 -> {

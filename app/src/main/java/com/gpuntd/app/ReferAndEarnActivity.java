@@ -14,7 +14,11 @@ public class ReferAndEarnActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_refer_and_earn);
         setSupportActionBar(binding.toolbarRef);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        binding.toolbarRef.setNavigationOnClickListener(view -> {
+            super.onBackPressed();
+        });
 
     }
 }

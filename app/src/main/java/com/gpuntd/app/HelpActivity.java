@@ -19,6 +19,12 @@ public class HelpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_help);
+        setSupportActionBar(binding.toolbarHelp);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        binding.toolbarHelp.setNavigationOnClickListener(view -> {
+            super.onBackPressed();
+        });
 
         binding.wasapSection.setOnClickListener(view -> {
             setupAddWhatsappDialog();
@@ -27,7 +33,7 @@ public class HelpActivity extends AppCompatActivity {
 
     public void setupAddWhatsappDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = LayoutInflater.from(HelpActivity.this).inflate(R.layout.add_whatsapp_dialog, findViewById(R.id.logoutView));
+        View view = LayoutInflater.from(HelpActivity.this).inflate(R.layout.dialog_add_whatsapp, findViewById(R.id.logoutView));
         builder.setView(view);
         final AlertDialog alertDialog = builder.create();
         view.findViewById(R.id.addWhatsappEt);

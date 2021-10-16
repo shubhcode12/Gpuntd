@@ -15,9 +15,17 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile);
+        setSupportActionBar(binding.toolbarProf);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        binding.toolbarProf.setNavigationOnClickListener(view -> {
+            super.onBackPressed();
+        });
 
         binding.btnReferalProgram.setOnClickListener(view -> {
             startActivity(new Intent(ProfileActivity.this, ReferAndEarnActivity.class));
         });
+
+
     }
 }
