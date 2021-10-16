@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/drawer_profile"
@@ -23,9 +23,9 @@
         android:icon="@drawable/ic_terms"
         android:title="@string/drawer_terms" />
     <group
-        android:menuCategory="container"
+        android:id="@+id/gp"
         android:enabled="true"
-        android:id="@+id/gp">
+        android:menuCategory="container">
         <item
             android:id="@+id/drawer_notification"
             android:icon="@drawable/ic_notification"
@@ -34,10 +34,7 @@
             android:id="@+id/drawer_help"
             android:icon="@drawable/ic_help"
             android:title="@string/drawer_help" />
-        <item
-            android:id="@+id/drawer_howto"
-            android:icon="@drawable/ic_howtouse"
-            android:title="@string/drawer_how_to_use" />
+
         <item
             android:id="@+id/drawer_logout"
             android:icon="@drawable/ic_logout"

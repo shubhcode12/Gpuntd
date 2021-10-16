@@ -1,9 +1,11 @@
 package com.gpuntd.app;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Switch;
@@ -21,6 +23,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.navigation.NavigationView;
 import com.gpuntd.app.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     ActionBarDrawerToggle actionBarDrawerToggle;
     Toolbar toolbar;
+    NavigationView navViewSide;
     DrawerLayout drawerLayout;
     NavController navController;
 
@@ -40,15 +44,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         toolbar = (Toolbar) findViewById(R.id.toolbarMain);
         drawerLayout = findViewById(R.id.drawer_layout);
+        navViewSide = findViewById(R.id.sideNav_view);
 
         setSupportActionBar(toolbar);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, binding.toolbarMain, R.string.drawer_open, R.string.drawer_close);
-        actionBarDrawerToggle.syncState();
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_1);
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -60,33 +61,7 @@ public class MainActivity extends AppCompatActivity {
         // NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        binding.navView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.drawer_profile:
-                        break;
-                    case R.id.drawer_withdrawalDetails:
-                        break;
-                    case R.id.drawer_create_id:
-                        navController.navigate(R.id.navigation_ids);
-                        break;
-                    case R.id.drawer_refer:
-                        break;
-                    case R.id.drawer_terms:
-                        break;
-                    case R.id.drawer_help:
-                        break;
-                    case R.id.drawer_howto:
-                        break;
-
-                    case R.id.drawer_logout:
-                        break;
-
-                }
-                return false;
-            }
-        });
+        setupNavigationDrawer();
 
     }
 
@@ -115,6 +90,55 @@ public class MainActivity extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         actionBarDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+
+    private void setupNavigationDrawer(){
+        navViewSide.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("WrongConstant")
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.drawer_profile:
+                        drawerLayout.closeDrawer(Gravity.START, false);
+                        startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                        break;
+                    case R.id.drawer_withdrawalDetails:
+                        drawerLayout.closeDrawer(Gravity.START, false);
+                        startActivity(new Intent(MainActivity.this, WithdrawDetailsActivity.class));
+                        break;
+                    case R.id.drawer_create_id:
+                        drawerLayout.closeDrawer(Gravity.START, false);
+                        navController.navigate(R.id.navigation_ids);
+                        break;
+                    case R.id.drawer_refer:
+                        drawerLayout.closeDrawer(Gravity.START, false);
+                        startActivity(new Intent(MainActivity.this, ReferAndEarnActivity.class));
+                        break;
+                    case R.id.drawer_terms:
+                        drawerLayout.closeDrawer(Gravity.START, false);
+                        startActivity(new Intent(MainActivity.this, TermsActivity.class));
+                        break;
+                    case R.id.drawer_help:
+                        drawerLayout.closeDrawer(Gravity.START, false);
+                        startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                        break;
+
+                    case R.id.drawer_logout:
+
+                        break;
+
+                }
+                return false;
+            }
+        });
+
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
     }
 
 
