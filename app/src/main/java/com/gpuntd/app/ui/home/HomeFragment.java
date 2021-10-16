@@ -1,5 +1,6 @@
 package com.gpuntd.app.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.gpuntd.app.DepositActivity;
 import com.gpuntd.app.MainActivity;
 import com.gpuntd.app.R;
 import com.gpuntd.app.databinding.FragmentHomeBinding;
@@ -30,6 +32,10 @@ public class HomeFragment extends Fragment {
         binding.walletBalSection.setOnClickListener(view -> {
             ((MainActivity) getActivity()).goToPassbook();
 
+        });
+
+        binding.depositSection.setOnClickListener(view -> {
+            startActivity(new Intent(getActivity(), DepositActivity.class));
         });
         return root;
     }

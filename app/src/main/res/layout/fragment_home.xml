@@ -30,6 +30,7 @@
                     app:cardBackgroundColor="@color/cardBgColor"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="5dp"
+                    android:id="@+id/depositSection"
                     app:cardUseCompatPadding="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/cardView"
