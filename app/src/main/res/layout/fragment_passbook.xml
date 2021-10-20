@@ -50,6 +50,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/passbookRv"
         android:layout_below="@+id/section1"
+        tools:listitem="@layout/adapter_passbook_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
