@@ -46,4 +46,8 @@
     <string name="navigation_drawer_close">Drawer Closed</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_url">https://darwinbark.com/pgr.php</string>
+    <string name="ok_message">ok</string>
 </resources>

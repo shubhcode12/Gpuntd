@@ -17,4 +17,6 @@ public class OtpLoginActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_otp_login);
 
     }
+
+
 }

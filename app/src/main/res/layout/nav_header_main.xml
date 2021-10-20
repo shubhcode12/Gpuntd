@@ -5,11 +5,14 @@
     android:layout_height="wrap_content"
     android:background="@color/cardBgColor"
     android:orientation="vertical"
+    android:layout_marginTop="30dp"
     android:padding="20dp">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
@@ -17,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="+919923818216"
+        android:text="+DARWINBARK TECHNOLOGIES"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -28,6 +31,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/walletbal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

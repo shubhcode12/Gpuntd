@@ -36,8 +36,26 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="?attr/actionBarSize">
 
-                <ImageView
+
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/prifileImageView"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/dummyuser_image"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="5dp"
+                    app:layout_anchorGravity="top|center_horizontal"
+                    app:layout_scrollFlags="scroll"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/prifileImageView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -81,7 +99,7 @@
                     android:layout_below="@+id/logoutSection"
                     android:layout_centerHorizontal="true"
                     android:layout_margin="10dp"
-                    android:text="SHUBHCODE"
+                    android:text="DARWINBARK "
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -105,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginStart="10dp"
-                        android:text="+91-9923818216" />
+                        android:text="+91-darwinbark" />
 
                 </LinearLayout>
 
@@ -131,25 +149,61 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:id="@+id/rewardSection"
                     android:layout_below="@+id/memberTv"
                     android:layout_centerHorizontal="true"
                     android:layout_margin="10dp"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/trophy"
-                        app:tint="@color/colorPrimary" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:text="Rewards Earned" />
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/trophy"
+                                app:tint="@color/colorPrimary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:text="Rewards Earned" />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/rewardsearned"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="10dp"
+                            android:text="0" />
+
+                    </LinearLayout>
+
+
+
+
+
 
                     <View
                         android:layout_width="1dp"
@@ -159,31 +213,67 @@
                         android:layout_marginEnd="10dp"
                         android:background="#424242" />
 
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:src="@drawable/ic_profile_2user"
-                        app:tint="@color/colorPrimary" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:text="Rewards Earned" />
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/trophy"
+                                app:tint="@color/colorPrimary" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:text="Users Referred " />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/refferals"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginStart="10dp"
+                            android:text="0" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <ImageView
-                    android:layout_below="@+id/rewardSection"
+
+                <androidx.cardview.widget.CardView
                     android:layout_margin="15dp"
-                    android:tintMode="multiply"
-                    android:src="@drawable/referal"
-                    android:id="@+id/btnReferalProgram"
-                    android:scaleType="fitXY"
-                    android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    app:tint="@color/colorPrimary" />
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/rewardSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/colorPrimary"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="15dp"
+                    app:cardUseCompatPadding="true">
+
+                    <ImageView
+                        android:tintMode="multiply"
+                        android:src="@drawable/referal"
+                        android:id="@+id/btnReferalProgram"
+                        android:scaleType="fitXY"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        app:tint="@color/colorPrimary" />
+
+                </androidx.cardview.widget.CardView>
 
             </RelativeLayout>
 
