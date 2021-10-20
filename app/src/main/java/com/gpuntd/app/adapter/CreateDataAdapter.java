@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,7 +25,7 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
 
     //private static final String TAG="RecyclerAdapter";
     List<Create_ID_Data> create_data;
-    private Context context;
+    private final Context context;
 
     // int count=0;
     public CreateDataAdapter(List<Create_ID_Data> create_data, Context context) {
@@ -99,7 +101,7 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
 
 
         holder.date.setText(walletData.getDate());
-        Log.d("DARWINBARK", walletData.getAmount() + walletData.getDate())*/;
+        Log.d("DARWINBARK", walletData.getAmount() + walletData.getDate())*/
 
 
         //holder.status.setText(listData.getStatus());
@@ -111,16 +113,28 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
         return create_data.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder  {
-        LinearLayout linearLayout;
-        TextView amount,date,name;
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        LinearLayout demoSection;
+        Button arrowDownBtn;
+        TextView amount, date, name;
 
-       public MyViewHolder(@NonNull View itemView) {
-           super(itemView);
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
 
            /*amount=itemView.findViewById(R.id.amount);
            date=itemView.findViewById(R.id.wallet_date);
            name=itemView.findViewById(R.id.name);*/
-       }
-   }
+            arrowDownBtn = itemView.findViewById(R.id.arrowDown);
+            demoSection = itemView.findViewById(R.id.demoSection);
+            arrowDownBtn.setOnClickListener(view -> {
+                demoSection.animate().
+                        translationY(view.getHeight())
+                        .setDuration(300);
+                demoSection.setVisibility((demoSection.getVisibility() == View.VISIBLE)
+                        ? View.GONE
+                        : View.VISIBLE);
+
+            });
+        }
+    }
 }
