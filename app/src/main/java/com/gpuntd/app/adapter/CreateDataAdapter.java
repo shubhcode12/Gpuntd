@@ -14,11 +14,18 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.gpuntd.app.Models.Create_ID_Data;
 import com.gpuntd.app.R;
+import com.gpuntd.app.Util.GlobalVariables;
+import com.gpuntd.app.databinding.FragmentIdsBinding;
+import com.gpuntd.app.ui.home.HomeFragment;
 
 
 import java.util.List;
+
+
 
 
 public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.MyViewHolder> {
@@ -26,7 +33,7 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
     //private static final String TAG="RecyclerAdapter";
     List<Create_ID_Data> create_data;
     private final Context context;
-
+    CreateDataAdapter binding;
     // int count=0;
     public CreateDataAdapter(List<Create_ID_Data> create_data, Context context) {
         this.create_data = create_data;
@@ -54,58 +61,25 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
         //      .load(listData
         //            .getImage_url())
         //  .into(holder.imageView);
+        if (createIdData.getIdStatus().equals("1"))  {
+           // holder.idName.setTextColor(ContextCompat.getColor(context, R.color.red));
+            holder.idName.setText(createIdData.getIdName());
+            holder.idWebsite.setText(createIdData.getIdWebsite());
 
+            if(!createIdData.getIdImage().equals("")) {
+                Log.d("KINGSN", "onBindViewHolder: "+createIdData.getIdImage());
+                Glide.with(context)
+                        .load(createIdData.getIdImage())
+                        .placeholder(R.drawable.round_bg)
+                        .dontAnimate()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(holder.idImage);
 
-       /* if (createIdData.getType().equals("PAID") || walletData.getType().equals("PENDING")) {
-            holder.amount.setTextColor(ContextCompat.getColor(context, R.color.red));
-            holder.name.setText("Coins Redeemed from  wallet");
-            holder.amount.setText(" - " + walletData.getAmount());
-        } else if (walletData.getType().equals("REDEEM")) {
-            //holder.amount.setTextColor(ContextCompat.getColor(context, R.color.favcolour));
-            holder.name.setText("Amount Redeemed From Wallet");
-            holder.amount.setText("- " + walletData.getTxn()+" ₹");
-            holder.amount.setTextColor(ContextCompat.getColor(context, R.color.green));
-        }
-        else if (walletData.getType().equals("CREDIT") & (walletData.getTxn().equals("MathQuiz"))) {
-        holder.amount.setTextColor(ContextCompat.getColor(context, R.color.favcolour));
-        holder.name.setText("Coins Earned Though Quiz");
-        holder.amount.setText(" + " +walletData.getAmount()+ " Coins");
-
-    }
-
-        else if (walletData.getType().equals("CREDIT") & (walletData.getTxn().equals("TASK_REWARD"))) {
-            holder.amount.setTextColor(ContextCompat.getColor(context, R.color.favcolour));
-            holder.name.setText("Coins Earned Though DailyTask");
-            holder.amount.setText(" + " +walletData.getAmount()+ " Coins");
-
-        }
-        else if (walletData.getType().equals("CREDIT") & (walletData.getTxn().equals("JOINING_BONUS"))) {
-            holder.amount.setTextColor(ContextCompat.getColor(context, R.color.favcolour));
-            holder.name.setText("Amount Credited For Signup");
-            holder.amount.setText(" + " +walletData.getAmount()+ " Coins");
-
-        }
-
-        else if (walletData.getType().equals("CREDIT") & (walletData.getTxn().equals("Qr Code Generation"))) {
-            holder.amount.setTextColor(ContextCompat.getColor(context, R.color.favcolour));
-            holder.name.setText("Amount Credited For Qr Code");
-            holder.amount.setText(" + " +walletData.getAmount()+ " ₹");
-
-        }
-        else if (walletData.getType().equals("CREDIT") & (walletData.getTxn().equals("Referal Bonus"))) {
-            holder.amount.setTextColor(ContextCompat.getColor(context, R.color.favcolour));
-            holder.name.setText("Amount Credited For Refferal");
-            holder.amount.setText(" + " +walletData.getAmount()+ " ₹");
+            }
 
         }
 
 
-        holder.date.setText(walletData.getDate());
-        Log.d("DARWINBARK", walletData.getAmount() + walletData.getDate())*/
-
-
-        //holder.status.setText(listData.getStatus());
-        //holder.joining.setText(listData.getJoining());
     }
 
     @Override
@@ -116,14 +90,15 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         LinearLayout demoSection;
         Button arrowDownBtn;
-        TextView amount, date, name;
+        de.hdodenhof.circleimageview.CircleImageView idImage;
+        TextView idName,idWebsite, date, name;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-           /*amount=itemView.findViewById(R.id.amount);
-           date=itemView.findViewById(R.id.wallet_date);
-           name=itemView.findViewById(R.id.name);*/
+            idName=itemView.findViewById(R.id.idName);
+           idWebsite=itemView.findViewById(R.id.idWebsite);
+            idImage=itemView.findViewById(R.id.idImage);
             arrowDownBtn = itemView.findViewById(R.id.arrowDown);
             demoSection = itemView.findViewById(R.id.demoSection);
             arrowDownBtn.setOnClickListener(view -> {

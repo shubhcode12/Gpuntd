@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -20,12 +21,14 @@
             android:orientation="horizontal"
             android:padding="10dp">
 
-            <ImageView
-                android:id="@+id/profileIv"
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/idImage"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/round_bg" />
+                android:layout_marginTop="10dp"
+                android:src="@drawable/round_bg" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -35,12 +38,14 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/idName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Exchanger"
                     android:textColor="@color/white" />
 
                 <TextView
+                    android:id="@+id/idWebsite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ech247.com" />
@@ -75,7 +80,7 @@
             android:layout_height="24dp"
             android:layout_below="@+id/divider"
             android:layout_alignParentEnd="true"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:background="@drawable/ic_arrow_down"
             app:tint="@color/white" />
 
@@ -84,10 +89,75 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/arrowDown"
-            android:layout_margin="10dp"
             android:animateLayoutChanges="true"
             android:orientation="vertical"
             android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="2dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="2dp"
+                    android:src="@drawable/cricket"
+                    app:tint="#BCBCBC" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/soccer"
+                    app:tint="#BCBCBC" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/badminton"
+                    app:tint="#BCBCBC" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/cricket"
+                    app:tint="#BCBCBC" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/horseriding"
+                    app:tint="#BCBCBC" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/cards"
+                    app:tint="#BCBCBC" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/carrom"
+                    app:tint="#BCBCBC" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/chess"
+                    app:tint="#BCBCBC" />
+
+
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -98,74 +168,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="2dp"
                     android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_margin="10dp"
-                        android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_margin="5dp"
-                            android:src="@drawable/cricket"
-                            app:tint="#BCBCBC" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_margin="5dp"
-                            android:src="@drawable/soccer"
-                            app:tint="#BCBCBC" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_margin="5dp"
-                            android:src="@drawable/badminton"
-                            app:tint="#BCBCBC" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_margin="5dp"
-                            android:src="@drawable/cricket"
-                            app:tint="#BCBCBC" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_margin="5dp"
-                            android:src="@drawable/horseriding"
-                            app:tint="#BCBCBC" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_margin="5dp"
-                            android:src="@drawable/cards"
-                            app:tint="#BCBCBC" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_margin="5dp"
-                            android:src="@drawable/carrom"
-                            app:tint="#BCBCBC" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_margin="5dp"
-                            android:src="@drawable/chess"
-                            app:tint="#BCBCBC" />
-
-
-                    </LinearLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -355,6 +361,7 @@
                             android:text="1,000" />
 
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -387,6 +394,7 @@
                             android:text="1,000" />
 
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -419,6 +427,7 @@
                             android:text="1,000" />
 
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -451,6 +460,7 @@
                             android:text="100" />
 
                     </RelativeLayout>
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
