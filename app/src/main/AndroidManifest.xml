@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".CreateIdActivity"
+            android:exported="true" />
+        <activity
             android:name=".TransactionDetailsActivity"
             android:exported="true" />
         <activity
