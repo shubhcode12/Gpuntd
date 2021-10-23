@@ -1,6 +1,7 @@
 package com.gpuntd.app.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.gpuntd.app.CreateIdActivity;
 import com.gpuntd.app.Models.Create_ID_Data;
 import com.gpuntd.app.R;
 import com.gpuntd.app.Util.GlobalVariables;
@@ -79,6 +81,14 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
 
         }
 
+        holder.btnCreateId.setOnClickListener(view -> {
+            Intent intent = new Intent(context, CreateIdActivity.class);
+            intent.putExtra("idimageurl", createIdData.getIdImage());
+            intent.putExtra("idname", createIdData.getIdName());
+            intent.putExtra("idwebsite", createIdData.getIdWebsite());
+            context.startActivity(intent);
+        });
+
 
     }
 
@@ -89,7 +99,7 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         LinearLayout demoSection;
-        Button arrowDownBtn;
+        Button arrowDownBtn, btnCreateId;
         de.hdodenhof.circleimageview.CircleImageView idImage;
         TextView idName,idWebsite, date, name;
 
@@ -101,6 +111,7 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
             idImage=itemView.findViewById(R.id.idImage);
             arrowDownBtn = itemView.findViewById(R.id.arrowDown);
             demoSection = itemView.findViewById(R.id.demoSection);
+            btnCreateId = itemView.findViewById(R.id.btnCreateId);
             arrowDownBtn.setOnClickListener(view -> {
                 demoSection.animate().
                         translationY(view.getHeight())
