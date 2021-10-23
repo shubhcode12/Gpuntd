@@ -39,6 +39,7 @@ public class RestAPI  {
     public static final String API_Refer_History=URL + "user_refer_history";
     public static final String API_Settings=URL + "settings";
     public static final String API_GET_CREATEID=URL + "create_id";
+    public static final String API_GET_PASSBOOK=URL + "passbook";
     public static final String API_Spin_Count=URL + "user_coin_count";
     public static final String API_Video_Ads_Count=URL + "video_ads_count";
     public static final String API_Video_Ads_Count_update=URL + "video_ads_count_update";
