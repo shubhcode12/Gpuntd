@@ -29,7 +29,8 @@
 
             </com.google.android.material.appbar.AppBarLayout>
 
-            <ImageView
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/ivIdProfile"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -65,6 +66,7 @@
                 android:padding="15dp">
 
                 <ImageView
+                    android:id="@+id/progess"
                     android:layout_width="60dp"
                     android:layout_height="300dp"
                     android:layout_margin="10dp"
@@ -88,6 +90,7 @@
                             android:textSize="18sp" />
 
                         <TextView
+                            android:id="@+id/tvStatus"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -194,7 +197,33 @@
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
                                     android:layout_marginEnd="10dp"
-                                    android:text="123434" />
+                                    android:textSize="10sp"
+                                    android:text="21-10-2021 | 08:17:34 pm" />
+
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rejectv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:layout_marginTop="10dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Rejected Date" />
+
+                                <TextView
+                                    android:id="@+id/tvRejectedDate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginEnd="10dp"
+                                    android:textSize="10sp"
+                                    android:text="21-10-2021 | 08:17:34 pm" />
 
 
                             </RelativeLayout>
@@ -224,6 +253,7 @@
                             android:textSize="18sp" />
 
                         <TextView
+                            android:id="@+id/tvStatus1"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
@@ -285,7 +315,7 @@
                                 <TextView
                                     android:id="@+id/tvDemoIDDepo"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_alignParentEnd="true"
                                     android:layout_marginEnd="10dp"
                                     android:text="1000" />

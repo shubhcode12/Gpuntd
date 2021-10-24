@@ -1,22 +1,27 @@
 package com.gpuntd.app.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.android.material.textfield.TextInputEditText;
 import com.gpuntd.app.CreateIdActivity;
 import com.gpuntd.app.Models.Create_ID_Data;
 import com.gpuntd.app.R;
@@ -78,6 +83,15 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
                         .into(holder.idImage);
 
             }
+            holder.tvDemoID.setText(createIdData.getDemoId());
+            holder.tvDemoPass.setText(createIdData.getDemoPass());
+            String url=createIdData.getDemoLink();
+            holder.ivLink.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    open(url );
+                }
+            });
 
         }
 
@@ -86,10 +100,23 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
             intent.putExtra("idimageurl", createIdData.getIdImage());
             intent.putExtra("idname", createIdData.getIdName());
             intent.putExtra("idwebsite", createIdData.getIdWebsite());
+            intent.putExtra("minRefill", createIdData.getMinRefill());
+            intent.putExtra("minWithdrawal", createIdData.getMinWithdrawal());
+            intent.putExtra("minMaintainBal", createIdData.getMinMaintainBal());
+            intent.putExtra("maxWithdrawal", createIdData.getMaxWithdrawal());
             context.startActivity(intent);
         });
 
 
+    }
+
+   public void open( String url) {
+        Uri uri = Uri.parse("googlechrome://navigate?url=" + url);
+        Intent i = new Intent(Intent.ACTION_VIEW, uri);
+        if (i.resolveActivity(context.getPackageManager()) == null) {
+            i.setData(Uri.parse(url));
+        }
+        context.startActivity(i);
     }
 
     @Override
@@ -101,7 +128,10 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
         LinearLayout demoSection;
         Button arrowDownBtn, btnCreateId;
         de.hdodenhof.circleimageview.CircleImageView idImage;
-        TextView idName,idWebsite, date, name;
+        TextView idName,idWebsite, date, name,tvDemoID,tvDemoPass;
+        ImageView ivLink;
+        TextInputEditText depositCoinsEt;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -112,6 +142,10 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
             arrowDownBtn = itemView.findViewById(R.id.arrowDown);
             demoSection = itemView.findViewById(R.id.demoSection);
             btnCreateId = itemView.findViewById(R.id.btnCreateId);
+            tvDemoID=itemView.findViewById(R.id.tvDemoID);
+            tvDemoPass=itemView.findViewById(R.id.tvDemoPass);
+            ivLink=itemView.findViewById(R.id.ivLink);
+
             arrowDownBtn.setOnClickListener(view -> {
                 demoSection.animate().
                         translationY(view.getHeight())
