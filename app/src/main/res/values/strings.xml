@@ -49,5 +49,7 @@
 
     <string name="privacy_policy">Privacy Policy</string>
     <string name="privacy_policy_url">https://darwinbark.com/pgr.php</string>
+    <string name="paytm_mid">jSbwjs96829691726449</string>
+    <string name="paytm_key">ok</string>
     <string name="ok_message">ok</string>
 </resources>

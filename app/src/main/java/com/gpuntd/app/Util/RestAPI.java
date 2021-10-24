@@ -47,6 +47,9 @@ public class RestAPI  {
     public static final String API_Forgot_Pass=URL + "forgot_pass";
     public static final String API_Contact_Us=URL + "support_ticket";
     public static final String API_Payment_Request=PURL;
+    public static final String API_insert_payment_verification=URL +"insert_payment_verification";
+    public static final String API_Paytm_Url=BASE_URL + "paytmsdk/generateChecksum.php";
+
 
     public static Retrofit getRetrofitInstance(){
 

@@ -173,6 +173,7 @@ public class GlobalVariables {
     public static Settings settings;
     public static Profileuser profileuser;
     public static final String AppSid="darwinbarkk";
+    public static final String Paytm_mid="jSbwjs96829691726449";
 
     //public static darwinbark.v1infotech.com.qrcode.Models.AdModelCount AdModelCount;
     //public static AdModelCount adModelCount;
