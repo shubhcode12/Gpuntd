@@ -130,11 +130,19 @@ public class IdsFragment extends Fragment {
                                     String idImage = object.getString("id_image");
                                     String idWebsite = object.getString("id_website");
                                     String idStatus = object.getString("id_status");
-                                    String idCreatedDate = object.getString("id_created_date");
-                                    String idUpdatedDate = object.getString("id_updated_date");
+                                    String demoId = object.getString("demoId");
+                                    String demoPass = object.getString("demoPass");
+                                    String demoLink = object.getString("demoLink");
+                                    String minRefill = object.getString("minRefill");
+                                    String minWithdrawal = object.getString("minWithdrawal");
+                                    String minMaintainBal = object.getString("minMaintainBal");
+                                    String maxWithdrawal = object.getString("maxWithdrawal");
+                                    String idCreatedDate = object.getString("id_total_created");
+                                    String idUpdatedDate = object.getString("id_created_date");
                                     String idTotalCreated = object.getString("id_total_created");
 
-                                    Create_ID_Data ld1=new Create_ID_Data( id,  idName,  idImage,  idWebsite,  idStatus,  idCreatedDate,
+                                    Create_ID_Data ld1=new Create_ID_Data( id,  idName,  idImage,  idWebsite,  idStatus, demoId,demoPass,demoLink,
+                                            minRefill,minWithdrawal,minMaintainBal,maxWithdrawal,idCreatedDate,
                                             idUpdatedDate,  idTotalCreated);
                                     create_id_data.add(ld1);
                                     //Toast.makeText(getActivity(), "hello"+ob.getString("amount"), Toast.LENGTH_LONG).show();

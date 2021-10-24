@@ -114,11 +114,13 @@ public class PassbookFragment extends Fragment {
                                     String createdDate = object.getString("createdDate");
                                     String approvalDate = object.getString("approvalDate");
                                     String image = object.getString("img");
+                                    String idWebsite = object.getString("idWebsite");
+                                    String idName = object.getString("idName");
 
 
 
                                     Passbook_Data ld1=new Passbook_Data( id,  username,  mobile, createdId, amount, txnType,
-                                            status, txnId,createdDate,approvalDate,image);
+                                            status, txnId,createdDate,approvalDate,image,idWebsite,idName);
                                     passbook_data.add(ld1);
                                     //Toast.makeText(getActivity(), "hello"+ob.getString("amount"), Toast.LENGTH_LONG).show();
 

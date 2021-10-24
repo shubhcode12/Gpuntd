@@ -10,7 +10,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             tools:context=".CreateIdActivity">
 
             <com.google.android.material.appbar.AppBarLayout
@@ -28,7 +28,7 @@
 
             </com.google.android.material.appbar.AppBarLayout>
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/ivIdProfile"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -128,8 +128,8 @@
                                 android:id="@+id/tvMinWithdrawal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:textColor="@color/white"
                                 android:layout_alignParentEnd="true"
-                                android:src="@drawable/ic_link"
                                 android:text="1000" />
 
                         </RelativeLayout>
@@ -214,7 +214,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/cardBgColor"
-                        android:inputType="text" />
+                        android:inputType="number" />
 
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -236,7 +236,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_toRightOf="@+id/checkboxPayFromWallet"
+                        android:layout_toEndOf="@+id/checkboxPayFromWallet"
                         android:text="Pay From Wallet" />
 
                     <TextView
@@ -244,7 +244,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tvPayFromWallet"
                         android:layout_marginTop="5dp"
-                        android:layout_toRightOf="@+id/checkboxPayFromWallet"
+                        android:layout_toEndOf="@+id/checkboxPayFromWallet"
                         android:text="Current Balance 0" />
                 </RelativeLayout>
 
