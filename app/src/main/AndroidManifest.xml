@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".MyIdDetailsActivity"
+            android:exported="true" />
+        <activity
             android:name=".SelectPaymentScreenshotActivity"
             android:exported="true" />
         <activity
