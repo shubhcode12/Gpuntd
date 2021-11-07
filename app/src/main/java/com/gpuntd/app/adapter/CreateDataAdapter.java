@@ -97,6 +97,7 @@ public class CreateDataAdapter extends RecyclerView.Adapter<CreateDataAdapter.My
 
         holder.btnCreateId.setOnClickListener(view -> {
             Intent intent = new Intent(context, CreateIdActivity.class);
+            intent.putExtra("createId", createIdData.getId());
             intent.putExtra("idimageurl", createIdData.getIdImage());
             intent.putExtra("idname", createIdData.getIdName());
             intent.putExtra("idwebsite", createIdData.getIdWebsite());

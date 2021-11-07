@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
     tools:context=".ui.ids.IdsFragment">
 
@@ -23,21 +24,36 @@
 
     </com.google.android.material.tabs.TabLayout>
 
-    <com.google.android.material.textfield.TextInputEditText
+    <androidx.cardview.widget.CardView
         android:id="@+id/searchView"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tabLayout"
-        android:layout_margin="20dp"
-        android:drawableRight="@drawable/ic_search"
-        android:hint="Search" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/cardBgColor"
+        app:cardCornerRadius="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tabLayout"
+            android:drawableRight="@drawable/ic_search"
+            android:hint="Search" />
+
+    </androidx.cardview.widget.CardView>
+
+
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMyID"
         android:visibility="gone"
-        android:background="#2196F3"
+        tools:listitem="@layout/adapter_myid_item"
+        android:background="#0e0c0d"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/searchView" />

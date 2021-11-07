@@ -204,7 +204,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Preferred Username"
+                    android:hint="Min Refill"
                     android:paddingStart="15dp"
                     android:paddingTop="15dp"
                     android:paddingEnd="15dp">

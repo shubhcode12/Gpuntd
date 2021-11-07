@@ -174,6 +174,10 @@ public class GlobalVariables {
     public static Profileuser profileuser;
     public static final String AppSid="darwinbarkk";
     public static final String Paytm_mid="jSbwjs96829691726449";
+    public static final String Deposit="Deposit";
+    public static final String Withdraw="Withdraw";
+    public static String idUsername="idUsername";
+    public static String idPassword="idpassword";
 
     //public static darwinbark.v1infotech.com.qrcode.Models.AdModelCount AdModelCount;
     //public static AdModelCount adModelCount;

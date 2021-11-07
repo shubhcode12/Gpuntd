@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
@@ -34,6 +35,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.gpuntd.app.Util.GlobalVariables;
 import com.gpuntd.app.Util.Method;
+import com.gpuntd.app.Util.PrefManager;
 import com.gpuntd.app.Util.RestAPI;
 import com.gpuntd.app.databinding.ActivityCreateIdBinding;
 import com.paytm.pgsdk.PaytmOrder;
@@ -56,13 +58,16 @@ public class CreateIdActivity extends AppCompatActivity {
     ActivityCreateIdBinding binding;
     String checksum;
     String orderId;
-    String mobile,minRefill;
+    String mobile,minRefill,createId,idUsername,idPassword;
     private Method method;
 
     public static final String WEBSITE = "DEFAULT";
     public static final String CHANNEL_ID = "WAP";
     public static final String INDUSTRY_TYPE_ID = "Retail";
     public static final String CALLBACK_URL = "https://pguat.paytm.com/paytmchecksum/paytmCallback.jsp";
+    private SharedPreferences.Editor editor;
+    private PrefManager prefManager;
+    private SharedPreferences preferences,sharedPreferences;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -70,6 +75,8 @@ public class CreateIdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_create_id);
         method= new Method(this);
+        Log.d(TAG, "onCreate: "+getIntent().getExtras());
+        createId = getIntent().getStringExtra("createId");
         String idImageUrl = getIntent().getStringExtra("idimageurl");
         String idName = getIntent().getStringExtra("idname");
         String idWebsite = getIntent().getStringExtra("idwebsite");
@@ -77,7 +84,12 @@ public class CreateIdActivity extends AppCompatActivity {
         String minWithdrawal = getIntent().getStringExtra("minWithdrawal");
         String minMaintainBal = getIntent().getStringExtra("minMaintainBal");
         String maxWithdrawal = getIntent().getStringExtra("maxWithdrawal");
+        Log.d(TAG, "onCreate: "+createId);
 
+        prefManager = new PrefManager(this);
+        Log.d(TAG, "onCreateView: "+ prefManager.getValue("OnesignalappKey"));
+        preferences = CreateIdActivity.this.getSharedPreferences(GlobalVariables.ADMIN_PREF, MODE_PRIVATE);
+        editor = preferences.edit();
         if (idImageUrl!=null){
             Glide.with(getApplicationContext())
                     .load(idImageUrl)
@@ -117,8 +129,19 @@ public class CreateIdActivity extends AppCompatActivity {
                 if(Objects.requireNonNull(binding.usernameEt.getText()).toString().equals("")){
                     binding.usernameEt.setError("Username is Mandatory");
                 }else{
-                    setupPaymentDialog();
+                   // setupPaymentDialog();
                     //GenerateChecksum();
+                    idUsername = binding.usernameEt.getText().toString();
+                    idPassword="";
+//                    editor.putString(GlobalVariables.idUsername,idUsername);
+//                    editor.putString(GlobalVariables.idPassword,idPassword);
+                    GlobalVariables.idUsername=binding.usernameEt.getText().toString();
+                    GlobalVariables.idPassword=binding.usernameEt.getText().toString();
+                    editor.apply();
+                    final String TxnType="0";
+                    Log.d(TAG, "onClick: "+GlobalVariables.idUsername);
+                   method.setupPaymentDialog(CreateIdActivity.this, minRefill,createId,TxnType);
+
                 }
             }
         });
@@ -127,7 +150,7 @@ public class CreateIdActivity extends AppCompatActivity {
 
     }
 
-    void setupPaymentDialog(){
+   public void setupPaymentDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view2 = LayoutInflater.from(CreateIdActivity.this).inflate(R.layout.dialog_select_payment_system, findViewById(R.id.selectPayment));
         builder.setView(view2);
@@ -174,7 +197,7 @@ public class CreateIdActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void GenerateChecksum() {
+    public void GenerateChecksum() {
         Random r = new Random(System.currentTimeMillis());
         orderId = "ORDER" + (1 + r.nextInt(2)) * 10000
                 + r.nextInt(10000);
@@ -384,6 +407,7 @@ public class CreateIdActivity extends AppCompatActivity {
                         //   Toast.makeText(Payment.this, "RESPONSE: " + response, Toast.LENGTH_SHORT).show();
                         try {
                             System.out.println(response);
+                            Log.d(TAG, "onResponse: "+response);
                             JSONObject jsonObject = new JSONObject(response);
 
                             JSONArray jsonArray = jsonObject.getJSONArray(GlobalVariables.AppSid);
@@ -463,9 +487,13 @@ public class CreateIdActivity extends AppCompatActivity {
         }) { @Override
         protected Map<String, String> getParams() {
             Map<String, String> params = new HashMap<>();
-            params.put("app_joining_fee_paid","");
-            params.put("user_id", GlobalVariables.profileuser.getMobile());
-            params.put("name",  GlobalVariables.profileuser.getName());
+            params.put("payMentMode","0");
+            params.put("mobile", GlobalVariables.profileuser.getMobile());
+            params.put("txnType","0"); /* For Create if*/
+            params.put("txnStatus","1");
+            params.put("createdId",createId);
+            params.put("idUsername",  binding.usernameEt.getText().toString());
+            params.put("idPassword","");
             params.put("email",  GlobalVariables.profileuser.getEmail());
             params.put("paid",minRefill);
             params.put("order_id", CreateIdActivity.this.orderId);
@@ -477,7 +505,7 @@ public class CreateIdActivity extends AppCompatActivity {
 
         RequestQueue requestQueue = Volley.newRequestQueue(CreateIdActivity.this);
         requestQueue.add(stringRequest);
-
+        Log.d(TAG, "volley: "+stringRequest);
 
 
     }

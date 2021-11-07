@@ -33,7 +33,10 @@
             android:name=".TransactionDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".DepositActivity"
+        android:name=".DepositActivity"
+        android:exported="true" />
+        <activity
+            android:name=".DepositIDActivity"
             android:exported="true" />
         <activity
             android:name=".HelpActivity"

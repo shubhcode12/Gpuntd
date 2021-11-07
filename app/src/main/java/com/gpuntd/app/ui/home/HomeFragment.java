@@ -6,20 +6,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -28,13 +23,12 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.gpuntd.app.LoginActivity;
+import com.gpuntd.app.DepositActivity;
 import com.gpuntd.app.LoginPageActivity;
-import com.gpuntd.app.MainActivity;
-import com.gpuntd.app.Models.AppSettings.Result;
 import com.gpuntd.app.Models.Profileuser;
 import com.gpuntd.app.Models.Settings;
 import com.gpuntd.app.R;
+import com.gpuntd.app.TransactionDetailsActivity;
 import com.gpuntd.app.Util.Ex;
 import com.gpuntd.app.Util.GlobalVariables;
 import com.gpuntd.app.Util.Method;
@@ -49,7 +43,6 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -130,6 +123,35 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        binding.depositbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(requireActivity(), DepositActivity.class);
+                intent.putExtra("screenType",GlobalVariables.Deposit);
+                intent.putExtra("userName",GlobalVariables.profileuser.getName());
+                intent.putExtra("mobile", GlobalVariables.profileuser.getMobile());
+                intent.putExtra("wallet_bal",GlobalVariables.profileuser.getWallet());
+                requireActivity().startActivity(intent);
+
+            }
+        });
+
+        binding.widthrawbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(getActivity(), DepositActivity.class));
+
+                Intent intent = new Intent(requireActivity(), DepositActivity.class);
+                intent.putExtra("screenType",GlobalVariables.Withdraw);
+                intent.putExtra("userName",GlobalVariables.profileuser.getName());
+                intent.putExtra("mobile", GlobalVariables.profileuser.getMobile());
+                intent.putExtra("wallet_bal",GlobalVariables.profileuser.getWallet());
+                requireActivity().startActivity(intent);
+
+
+            }
+        });
+
     }
 
     private void getAllData() {
@@ -203,7 +225,7 @@ public class HomeFragment extends Fragment {
                                     String image = object.getString("image");
                                     String joiningBonus = object.getString("joining_bonus");
                                     String perRefer = object.getString("per_refer");
-                                    String dailytaskCoin = object.getString("dailytask_coin");
+                                    String minDepositcoin = object.getString("minDepositcoin");
                                     String hourlyQuizCoin = object.getString("hourly_quiz_coin");
                                     String mathsQuizCoin = object.getString("maths_quiz_coin");
                                     String maxmMathsQuestn = object.getString("maxm_maths_questn");
@@ -224,7 +246,7 @@ public class HomeFragment extends Fragment {
                                     String appPromo2 = object.getString("app_promo2");
                                     String date = object.getString("date");
 
-                                    Settings  settings=new Settings( appName,  appLogo,  appDescription,  appVersion,  appAuthor,  appContact,  appEmail,  appWebsite,  appDevelopedBy,  redeemCurrency, homeBannerimg1Enabled, homeBannerimg1, homeBannerimg2Enabled , homeBannerimg2, homeBannerimg3,  onesignalappId,  onesignalappKey,  referTxt,   image,  joiningBonus,  perRefer,  dailytaskCoin,  hourlyQuizCoin,  mathsQuizCoin,  maxmMathsQuestn,  hourlySpinLimit,  hourlyMathsquizLimit,  mathsQuizUnlockMin,  perNewsCoin,  minimumWidthrawal,  minRedeemAmount,  telegramlink,  youtubeLink,  facebookPage,  newVersion,  updateLink,  adminMsg,  joinGroup,  appPromo1,  appPromo2,  date);
+                                    Settings  settings=new Settings( appName,  appLogo,  appDescription,  appVersion,  appAuthor,  appContact,  appEmail,  appWebsite,  appDevelopedBy,  redeemCurrency, homeBannerimg1Enabled, homeBannerimg1, homeBannerimg2Enabled , homeBannerimg2, homeBannerimg3,  onesignalappId,  onesignalappKey,  referTxt,   image,  joiningBonus,  perRefer,  minDepositcoin,  hourlyQuizCoin,  mathsQuizCoin,  maxmMathsQuestn,  hourlySpinLimit,  hourlyMathsquizLimit,  mathsQuizUnlockMin,  perNewsCoin,  minimumWidthrawal,  minRedeemAmount,  telegramlink,  youtubeLink,  facebookPage,  newVersion,  updateLink,  adminMsg,  joinGroup,  appPromo1,  appPromo2,  date);
 
                                     GlobalVariables.profileuser=profileuser;
                                     GlobalVariables.settings=settings;

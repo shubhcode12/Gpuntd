@@ -256,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
                                     String image = object.getString("image");
                                     String joiningBonus = object.getString("joining_bonus");
                                     String perRefer = object.getString("per_refer");
-                                    String dailytaskCoin = object.getString("dailytask_coin");
+                                    String minDepositcoin = object.getString("minDepositcoin");
                                     String hourlyQuizCoin = object.getString("hourly_quiz_coin");
                                     String mathsQuizCoin = object.getString("maths_quiz_coin");
                                     String maxmMathsQuestn = object.getString("maxm_maths_questn");
@@ -277,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
                                     String appPromo2 = object.getString("app_promo2");
                                     String date = object.getString("date");
 
-                                    Settings  settings=new Settings( appName,  appLogo,  appDescription,  appVersion,  appAuthor,  appContact,  appEmail,  appWebsite,  appDevelopedBy,  redeemCurrency, homeBannerimg1Enabled, homeBannerimg1, homeBannerimg2Enabled , homeBannerimg2, homeBannerimg3,  onesignalappId,  onesignalappKey,  referTxt,   image,  joiningBonus,  perRefer,  dailytaskCoin,  hourlyQuizCoin,  mathsQuizCoin,  maxmMathsQuestn,  hourlySpinLimit,  hourlyMathsquizLimit,  mathsQuizUnlockMin,  perNewsCoin,  minimumWidthrawal,  minRedeemAmount,  telegramlink,  youtubeLink,  facebookPage,  newVersion,  updateLink,  adminMsg,  joinGroup,  appPromo1,  appPromo2,  date);
+                                    Settings  settings=new Settings( appName,  appLogo,  appDescription,  appVersion,  appAuthor,  appContact,  appEmail,  appWebsite,  appDevelopedBy,  redeemCurrency, homeBannerimg1Enabled, homeBannerimg1, homeBannerimg2Enabled , homeBannerimg2, homeBannerimg3,  onesignalappId,  onesignalappKey,  referTxt,   image,  joiningBonus,  perRefer,  minDepositcoin,  hourlyQuizCoin,  mathsQuizCoin,  maxmMathsQuestn,  hourlySpinLimit,  hourlyMathsquizLimit,  mathsQuizUnlockMin,  perNewsCoin,  minimumWidthrawal,  minRedeemAmount,  telegramlink,  youtubeLink,  facebookPage,  newVersion,  updateLink,  adminMsg,  joinGroup,  appPromo1,  appPromo2,  date);
 
                                     GlobalVariables.profileuser=profileuser;
                                     GlobalVariables.settings=settings;
@@ -341,16 +341,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }) {
-            @Override
-            protected Map<String, String> getParams() {
+                @Override
+                protected Map<String, String> getParams() {
 
-                Map<String, String> params = new HashMap<>();
-                params.put("users_login", "KINGSN");
-                params.put("mobile",preferences.getString(GlobalVariables.USER_MOBILE,"") );
-                params.put("device_id",method.getDeviceId(getApplicationContext()));
+                    Map<String, String> params = new HashMap<>();
+                    params.put("users_login", "KINGSN");
+                    params.put("mobile",preferences.getString(GlobalVariables.USER_MOBILE,"") );
+                    params.put("device_id",method.getDeviceId(getApplicationContext()));
 
-                return params;
-            }
+                    return params;
+                }
         };
 
         RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
