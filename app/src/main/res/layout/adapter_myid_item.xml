@@ -108,7 +108,7 @@
             android:background="@drawable/arrow_shape"
             android:orientation="vertical"
             android:padding="10dp"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="wrap_content"

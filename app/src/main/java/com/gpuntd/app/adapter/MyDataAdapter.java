@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.daasuu.bl.ArrowDirection;
+import com.daasuu.bl.BubbleLayout;
+import com.daasuu.bl.BubblePopupHelper;
 import com.google.android.material.textfield.TextInputEditText;
 import com.gpuntd.app.CreateIdActivity;
 import com.gpuntd.app.DepositActivity;
@@ -27,6 +32,7 @@ import com.gpuntd.app.R;
 import com.gpuntd.app.Util.GlobalVariables;
 
 import java.util.List;
+import java.util.Random;
 
 
 public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHolder> {
@@ -121,6 +127,17 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
             context.startActivity(intent);
         });
 
+        holder.tdot.setOnClickListener(view -> {
+            int[] location = new int[2];
+            view.getLocationInWindow(location);
+            if (holder.random.nextBoolean()) {
+                holder.bubbleLayout.setArrowDirection(ArrowDirection.TOP);
+            } else {
+                holder.bubbleLayout.setArrowDirection(ArrowDirection.BOTTOM);
+            }
+            holder.popupWindow.showAtLocation(view, Gravity.NO_GRAVITY, location[0], view.getHeight() + location[1]);
+        });
+
     }
 
    public void open( String url) {
@@ -144,6 +161,9 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
         TextView idName,idWebsite, date, name,tvDemoID,tvDemoPass,iwtv,idtv;
         ImageView ivLink,tdot;
         TextInputEditText depositCoinsEt;
+        PopupWindow popupWindow;
+        BubbleLayout bubbleLayout;
+        final Random random;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -155,6 +175,11 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
             idtv = itemView.findViewById(R.id.idtv);
             iwtv = itemView.findViewById(R.id.iwtv);
             tdot = itemView.findViewById(R.id.tdot);
+            random = new Random();
+
+             bubbleLayout = (BubbleLayout) LayoutInflater.from(itemView.getContext()).inflate(R.layout.dialog_myid_options, null);
+             popupWindow = BubblePopupHelper.create(itemView.getContext(), bubbleLayout);
+
             /*tvDemoID=itemView.findViewById(R.id.tvDemoID);
             tvDemoPass=itemView.findViewById(R.id.tvDemoPass);
             ivLink=itemView.findViewById(R.id.ivLink);*/
