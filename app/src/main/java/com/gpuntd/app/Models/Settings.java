@@ -135,9 +135,9 @@ public class Settings {
         @SerializedName("per_refer")
         @Expose
         private String perRefer;
-        @SerializedName("dailytask_coin")
+        @SerializedName("minDepositcoin")
         @Expose
-        private String dailytaskCoin;
+        private String minDepositcoin;
         @SerializedName("hourly_quiz_coin")
         @Expose
         private String hourlyQuizCoin;
@@ -196,7 +196,7 @@ public class Settings {
         @Expose
         private String date;
 
-        public Settings(String appName, String appLogo, String appDescription, String appVersion, String appAuthor, String appContact, String appEmail, String appWebsite, String appDevelopedBy, String redeemCurrency,String homeBannerimg1Enabled, String homeBannerimg1,String homeBannerimg2Enabled,String homeBannerimg2, String homeBannerimg3, String onesignalappId, String onesignalappKey, String referTxt, String image, String joiningBonus, String perRefer, String dailytaskCoin, String hourlyQuizCoin, String mathsQuizCoin, String maxmMathsQuestn, String hourlySpinLimit, String hourlyMathsquizLimit, String mathsQuizUnlockMin, String perNewsCoin, String minimumWidthrawal, String minRedeemAmount, String telegramlink, String youtubeLink, String facebookPage, String newVersion, String updateLink, String adminMsg, String joinGroup, String appPromo1, String appPromo2, String date) {
+        public Settings(String appName, String appLogo, String appDescription, String appVersion, String appAuthor, String appContact, String appEmail, String appWebsite, String appDevelopedBy, String redeemCurrency,String homeBannerimg1Enabled, String homeBannerimg1,String homeBannerimg2Enabled,String homeBannerimg2, String homeBannerimg3, String onesignalappId, String onesignalappKey, String referTxt, String image, String joiningBonus, String perRefer, String minDepositcoin, String hourlyQuizCoin, String mathsQuizCoin, String maxmMathsQuestn, String hourlySpinLimit, String hourlyMathsquizLimit, String mathsQuizUnlockMin, String perNewsCoin, String minimumWidthrawal, String minRedeemAmount, String telegramlink, String youtubeLink, String facebookPage, String newVersion, String updateLink, String adminMsg, String joinGroup, String appPromo1, String appPromo2, String date) {
             super();
             this.appName = appName;
             this.appLogo = appLogo;
@@ -219,7 +219,7 @@ public class Settings {
             this.image = image;
             this.joiningBonus = joiningBonus;
             this.perRefer = perRefer;
-            this.dailytaskCoin = dailytaskCoin;
+            this.minDepositcoin = minDepositcoin;
             this.hourlyQuizCoin = hourlyQuizCoin;
             this.mathsQuizCoin = mathsQuizCoin;
             this.maxmMathsQuestn = maxmMathsQuestn;
@@ -561,15 +561,15 @@ public class Settings {
             this.perRefer = perRefer;
         }
 
-        public String getDailytaskCoin() {
-            return dailytaskCoin;
-        }
+    public String getMinDepositcoin() {
+        return minDepositcoin;
+    }
 
-        public void setDailytaskCoin(String dailytaskCoin) {
-            this.dailytaskCoin = dailytaskCoin;
-        }
+    public void setMinDepositcoin(String minDepositcoin) {
+        this.minDepositcoin = minDepositcoin;
+    }
 
-        public String getHourlyQuizCoin() {
+    public String getHourlyQuizCoin() {
             return hourlyQuizCoin;
         }
 

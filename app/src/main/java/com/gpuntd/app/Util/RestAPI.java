@@ -39,6 +39,7 @@ public class RestAPI  {
     public static final String API_Refer_History=URL + "user_refer_history";
     public static final String API_Settings=URL + "settings";
     public static final String API_GET_CREATEID=URL + "create_id";
+    public static final String API_GET_MYID=URL + "my_id";
     public static final String API_GET_PASSBOOK=URL + "passbook";
     public static final String API_Spin_Count=URL + "user_coin_count";
     public static final String API_Video_Ads_Count=URL + "video_ads_count";
@@ -47,6 +48,9 @@ public class RestAPI  {
     public static final String API_Forgot_Pass=URL + "forgot_pass";
     public static final String API_Contact_Us=URL + "support_ticket";
     public static final String API_Payment_Request=PURL;
+    public static final String API_insert_payment_verification=URL +"insert_payment_verification";
+    public static final String API_Paytm_Url=BASE_URL + "paytmsdk/generateChecksum.php";
+
 
     public static Retrofit getRetrofitInstance(){
 
