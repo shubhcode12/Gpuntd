@@ -104,6 +104,8 @@ dependencies {
 
     // bubble layout
     implementation 'com.github.MasayukiSuda:BubbleLayout:v1.2.2'
+    implementation 'com.paytm:pgplussdk:1.4.4'
+    implementation "com.github.skydoves:balloon:1.4.0"
 
 
 }

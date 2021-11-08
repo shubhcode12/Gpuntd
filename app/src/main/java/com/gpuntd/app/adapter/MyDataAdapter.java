@@ -1,5 +1,7 @@
 package com.gpuntd.app.adapter;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +33,7 @@ import com.gpuntd.app.Models.Create_ID_Data;
 import com.gpuntd.app.Models.My_ID_Data;
 import com.gpuntd.app.R;
 import com.gpuntd.app.Util.GlobalVariables;
+import com.gpuntd.app.WithdrawDetailsActivity;
 
 import java.util.List;
 import java.util.Random;
@@ -38,9 +42,10 @@ import java.util.Random;
 public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHolder> {
 
     //private static final String TAG="RecyclerAdapter";
-    List<My_ID_Data> myId_data;
-    private final Context context;
+   public List<My_ID_Data> myId_data;
+    public final Context context;
     MyDataAdapter binding;
+
     // int count=0;
     public MyDataAdapter(List<My_ID_Data> myId_data, Context context) {
         this.myId_data = myId_data;
@@ -62,7 +67,7 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-        My_ID_Data myIdData = myId_data.get(position);
+      final   My_ID_Data myIdData = myId_data.get(position);
 
 
         if (myIdData.getIdStatus().equals("1"))  {
@@ -127,16 +132,18 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
             context.startActivity(intent);
         });
 
+
         holder.tdot.setOnClickListener(view -> {
             int[] location = new int[2];
             view.getLocationInWindow(location);
             if (holder.random.nextBoolean()) {
-                holder.bubbleLayout.setArrowDirection(ArrowDirection.TOP);
+                holder.bubbleLayout.setArrowDirection(ArrowDirection.TOP_RIGHT);
             } else {
-                holder.bubbleLayout.setArrowDirection(ArrowDirection.BOTTOM);
+               // holder.bubbleLayout.setArrowDirection(ArrowDirection.BOTTOM);
             }
             holder.popupWindow.showAtLocation(view, Gravity.NO_GRAVITY, location[0], view.getHeight() + location[1]);
         });
+
 
     }
 
@@ -147,6 +154,10 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
             i.setData(Uri.parse(url));
         }
         context.startActivity(i);
+    }
+
+    public void openDipositIdActivity(){
+
     }
 
     @Override
@@ -166,6 +177,7 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
         final Random random;
 
 
+        @SuppressLint("InflateParams")
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -177,8 +189,17 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
             tdot = itemView.findViewById(R.id.tdot);
             random = new Random();
 
+
              bubbleLayout = (BubbleLayout) LayoutInflater.from(itemView.getContext()).inflate(R.layout.dialog_myid_options, null);
              popupWindow = BubblePopupHelper.create(itemView.getContext(), bubbleLayout);
+              TextView btnDepo=bubbleLayout.findViewById(R.id.pdeposit);
+
+              btnDepo.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+
+                  }
+              });
 
             /*tvDemoID=itemView.findViewById(R.id.tvDemoID);
             tvDemoPass=itemView.findViewById(R.id.tvDemoPass);
@@ -193,6 +214,7 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
                         : View.VISIBLE);
 
             });*/
+
         }
     }
 }

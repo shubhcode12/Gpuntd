@@ -28,6 +28,7 @@ public class RestAPI  {
     public static final String URL1= BASE_URL +"api_v1/";
     public static final String PURL=BASE_URL + "/api_v1/api_withdraw_request.php?";
     public static final String CHECK_USER=URL + "check_user";
+    public static final String KYC_UPDATE=URL + "kyc_update";
     public static final String API_Registation=URL+ "user_register";
     public static final String API_Login=URL+ "users_login";
     public static final String API_Device_Login=URL + "device_login";

@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_withdrawDetails:
                 startActivity(new Intent(MainActivity.this, WithdrawDetailsActivity.class));
                 // navController.navigate(R.id.navigation_ids);
-                Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(this, "" + item.getTitle(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_notification:
                 startActivity(new Intent(MainActivity.this, NotificationsActivity.class));
@@ -276,8 +276,37 @@ public class MainActivity extends AppCompatActivity {
                                     String appPromo1 = object.getString("app_promo1");
                                     String appPromo2 = object.getString("app_promo2");
                                     String date = object.getString("date");
+                                    String kid  =object.getString("kid");
+                                    String kmobile  =object.getString("kmobile");
+                                    String userName  =object.getString("userName");
+                                    String bankDetailsStatus  =object.getString("bankDetailsStatus");
+                                    String bankName  =object.getString("bankName");
+                                    String bankAccNo  =object.getString("bankAccNo");
+                                    String bankIfsc  =object.getString("bankIfsc");
+                                    String bankAccHolderName  =object.getString("BankAccHolderName");
+                                    String paytmName  =object.getString("paytmName");
+                                    String paytmNo  =object.getString("paytmNo");
+                                    String gPayName  =object.getString("gPayName");
+                                    String gPayNo  =object.getString("gPayNo");
+                                    String phonePayName  =object.getString("phonePayName");
+                                    String phonePayNo  =object.getString("phonePayNo");
+                                    String patymUpiName  =object.getString("patymUpiName");
+                                    String patymUpiNo  =object.getString("patymUpiNo");
+                                    String upiName  =object.getString("upiName");
+                                    String upiNo  =object.getString("upiNo");
+                                    String kcreationDate  =object.getString("kcreationDate");
+                                    String kupdatedDate  =object.getString("kupdatedDate");
 
-                                    Settings  settings=new Settings( appName,  appLogo,  appDescription,  appVersion,  appAuthor,  appContact,  appEmail,  appWebsite,  appDevelopedBy,  redeemCurrency, homeBannerimg1Enabled, homeBannerimg1, homeBannerimg2Enabled , homeBannerimg2, homeBannerimg3,  onesignalappId,  onesignalappKey,  referTxt,   image,  joiningBonus,  perRefer,  minDepositcoin,  hourlyQuizCoin,  mathsQuizCoin,  maxmMathsQuestn,  hourlySpinLimit,  hourlyMathsquizLimit,  mathsQuizUnlockMin,  perNewsCoin,  minimumWidthrawal,  minRedeemAmount,  telegramlink,  youtubeLink,  facebookPage,  newVersion,  updateLink,  adminMsg,  joinGroup,  appPromo1,  appPromo2,  date);
+                        Settings  settings=new Settings( appName,  appLogo,  appDescription,  appVersion,  appAuthor,  appContact,
+                                appEmail,  appWebsite,  appDevelopedBy,  redeemCurrency, homeBannerimg1Enabled, homeBannerimg1,
+                                homeBannerimg2Enabled , homeBannerimg2, homeBannerimg3,  onesignalappId,  onesignalappKey,  referTxt,
+                                image,  joiningBonus,  perRefer,  minDepositcoin,  hourlyQuizCoin,  mathsQuizCoin,  maxmMathsQuestn,
+                                hourlySpinLimit,  hourlyMathsquizLimit,  mathsQuizUnlockMin,  perNewsCoin,  minimumWidthrawal,
+                                minRedeemAmount,  telegramlink,  youtubeLink,  facebookPage,  newVersion,  updateLink,  adminMsg,
+                                joinGroup,  appPromo1,  appPromo2,  date, kid, kmobile, userName, bankDetailsStatus, bankName, bankAccNo,
+                                bankIfsc, bankAccHolderName, paytmName, paytmNo, gPayName, gPayNo,
+                                phonePayName, phonePayNo, patymUpiName, patymUpiNo, upiName, upiNo,
+                                kcreationDate, kupdatedDate);
 
                                     GlobalVariables.profileuser=profileuser;
                                     GlobalVariables.settings=settings;

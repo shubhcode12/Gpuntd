@@ -52,4 +52,6 @@
     <string name="paytm_mid">jSbwjs96829691726449</string>
     <string name="paytm_key">ok</string>
     <string name="ok_message">ok</string>
+    <string name="add_new">Add New</string>
+    <string name="edit">Edit</string>
 </resources>

@@ -49,6 +49,7 @@ import com.gpuntd.app.CreateIdActivity;
 import com.gpuntd.app.DepositIDActivity;
 import com.gpuntd.app.Interface.VideoAds;
 import com.gpuntd.app.LoginActivity;
+import com.gpuntd.app.MainActivity;
 import com.gpuntd.app.Models.UserBalance;
 import com.gpuntd.app.OtpLoginActivity;
 import com.gpuntd.app.R;
@@ -1280,4 +1281,47 @@ public class Method {
         android.app.AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
+
+
+    public static void alertBox(String type,String title ,String message,Activity activity) {
+
+        androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity);
+        ViewGroup viewGroup = activity.findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(activity).inflate(R.layout.alert_dialog, viewGroup, false);
+        builder.setView(dialogView);
+        builder.setCancelable(true);
+        final androidx.appcompat.app.AlertDialog alertDialog = builder.create();
+        ImageView iconImage=dialogView.findViewById(R.id.iconImage);
+        TextView alertTitle=dialogView.findViewById(R.id.alertTitle);
+        TextView alertMsg=dialogView.findViewById(R.id.alertMsg);
+
+        alertTitle.setText(title);
+        alertMsg.setText(message);
+        if(type.equals("1")){
+            iconImage.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_check));
+           // iconImage.getImageTintBlendMode(R.color.black);
+            iconImage.setBackground(activity.getResources().getDrawable(R.drawable.round_icon_bg));
+        }else{
+            iconImage.setImageDrawable(activity.getResources().getDrawable(R.drawable.ic_baseline));
+            //iconImage.setBackgroundColor(activity.getResources().getColor(R.color.errorColor));
+            iconImage.setBackground(activity.getResources().getDrawable(R.drawable.round_icon_bg));
+        }
+
+
+
+
+        if (alertDialog.getWindow() != null){
+            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        }
+        alertDialog.show();
+
+        dialogView.findViewById(R.id.alertBtn).setOnClickListener(view1 -> {
+            alertDialog.dismiss();
+        });
+
+
+
+    }
+
+
 }

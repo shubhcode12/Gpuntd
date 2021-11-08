@@ -1,57 +1,25 @@
 package com.gpuntd.app;
 
-import androidx.annotation.LongDef;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.gpuntd.app.Util.GlobalVariables;
 import com.gpuntd.app.Util.Method;
 import com.gpuntd.app.Util.PrefManager;
-import com.gpuntd.app.Util.RestAPI;
 import com.gpuntd.app.databinding.ActivityCreateIdBinding;
-import com.paytm.pgsdk.PaytmOrder;
-import com.paytm.pgsdk.PaytmPGService;
-import com.paytm.pgsdk.PaytmPaymentTransactionCallback;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
-import java.util.Random;
-
-import es.dmoral.toasty.Toasty;
 
 public class CreateIdActivity extends AppCompatActivity {
     private static final String TAG = "KINGSN";
@@ -150,7 +118,7 @@ public class CreateIdActivity extends AppCompatActivity {
 
     }
 
-   public void setupPaymentDialog(){
+  /* public void setupPaymentDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view2 = LayoutInflater.from(CreateIdActivity.this).inflate(R.layout.dialog_select_payment_system, findViewById(R.id.selectPayment));
         builder.setView(view2);
@@ -293,9 +261,9 @@ public class CreateIdActivity extends AppCompatActivity {
 
         PaytmOrder Order = new PaytmOrder(paramMap);
 
-		/*PaytmMerchant Merchant = new PaytmMerchant(
+		*//*PaytmMerchant Merchant = new PaytmMerchant(
 				"https://pguat.paytm.com/paytmchecksum/paytmCheckSumGenerator.jsp",
-				"https://pguat.paytm.com/paytmchecksum/paytmCheckSumVerify.jsp");*/
+				"https://pguat.paytm.com/paytmchecksum/paytmCheckSumVerify.jsp");*//*
 
         Service.initialize(Order, null);
 
@@ -326,8 +294,8 @@ public class CreateIdActivity extends AppCompatActivity {
                             Toasty.success(CreateIdActivity.this, " Transaction success", Toast.LENGTH_LONG).show();
                             //  method.loadingDialog.dismiss();
                             //uploadData();
-                           /* Method.BalanceUpdate(constant.sharedPreferences.getString(constant.profileId, "profileId"),
-                                    "Credit", amount, ip, 3);*/
+                           *//* Method.BalanceUpdate(constant.sharedPreferences.getString(constant.profileId, "profileId"),
+                                    "Credit", amount, ip, 3);*//*
                             //onSuccessPay(orderId);
                             // showPay_Status_AlertDialog(1);
                             // method.loadingDialogg(Payment.this);
@@ -424,7 +392,7 @@ public class CreateIdActivity extends AppCompatActivity {
                                     // method.loadingDialog.dismiss();
                                     // loadingDialog.dismiss();
                                     showPay_Status_AlertDialog(1);
-                                   /* android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(Payment.this);
+                                   *//* android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(Payment.this);
                                     alertDialogBuilder.setTitle(object.getString("title"));
                                     alertDialogBuilder.setMessage(object.getString("msg"));
                                     alertDialogBuilder.setIcon(R.mipmap.ic_launcher);
@@ -440,7 +408,7 @@ public class CreateIdActivity extends AppCompatActivity {
 
                                     android.app.AlertDialog alertDialog = alertDialogBuilder.create();
                                     alertDialog.show();
-                                   // Toast.makeText(Payment.this, object.getString("msg"), Toast.LENGTH_LONG).show();*/
+                                   // Toast.makeText(Payment.this, object.getString("msg"), Toast.LENGTH_LONG).show();*//*
 
 
                                 } else {
@@ -489,7 +457,7 @@ public class CreateIdActivity extends AppCompatActivity {
             Map<String, String> params = new HashMap<>();
             params.put("payMentMode","0");
             params.put("mobile", GlobalVariables.profileuser.getMobile());
-            params.put("txnType","0"); /* For Create if*/
+            params.put("txnType","0"); *//* For Create if*//*
             params.put("txnStatus","1");
             params.put("createdId",createId);
             params.put("idUsername",  binding.usernameEt.getText().toString());
@@ -568,7 +536,7 @@ public class CreateIdActivity extends AppCompatActivity {
 
 
     }
-
+*/
     public void ifvolleyfail(){
         android.app.AlertDialog.Builder alertDialogBuilder = new android.app.AlertDialog.Builder(CreateIdActivity.this);
         alertDialogBuilder.setTitle("Something Went Wrong");

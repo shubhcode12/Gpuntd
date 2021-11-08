@@ -196,7 +196,80 @@ public class Settings {
         @Expose
         private String date;
 
-        public Settings(String appName, String appLogo, String appDescription, String appVersion, String appAuthor, String appContact, String appEmail, String appWebsite, String appDevelopedBy, String redeemCurrency,String homeBannerimg1Enabled, String homeBannerimg1,String homeBannerimg2Enabled,String homeBannerimg2, String homeBannerimg3, String onesignalappId, String onesignalappKey, String referTxt, String image, String joiningBonus, String perRefer, String minDepositcoin, String hourlyQuizCoin, String mathsQuizCoin, String maxmMathsQuestn, String hourlySpinLimit, String hourlyMathsquizLimit, String mathsQuizUnlockMin, String perNewsCoin, String minimumWidthrawal, String minRedeemAmount, String telegramlink, String youtubeLink, String facebookPage, String newVersion, String updateLink, String adminMsg, String joinGroup, String appPromo1, String appPromo2, String date) {
+    @SerializedName("kid")
+    @Expose
+    private String kid;
+    @SerializedName("kmobile")
+    @Expose
+    private String kmobile;
+    @SerializedName("userName")
+    @Expose
+    private String userName;
+    @SerializedName("bankDetailsStatus")
+    @Expose
+    private String bankDetailsStatus;
+    @SerializedName("bankName")
+    @Expose
+    private String bankName;
+    @SerializedName("bankAccNo")
+    @Expose
+    private String bankAccNo;
+    @SerializedName("bankIfsc")
+    @Expose
+    private String bankIfsc;
+    @SerializedName("BankAccHolderName")
+    @Expose
+    private String bankAccHolderName;
+    @SerializedName("paytmName")
+    @Expose
+    private String paytmName;
+    @SerializedName("paytmNo")
+    @Expose
+    private String paytmNo;
+    @SerializedName("gPayName")
+    @Expose
+    private String gPayName;
+    @SerializedName("gPayNo")
+    @Expose
+    private String gPayNo;
+    @SerializedName("phonePayName")
+    @Expose
+    private String phonePayName;
+    @SerializedName("phonePayNo")
+    @Expose
+    private String phonePayNo;
+    @SerializedName("patymUpiName")
+    @Expose
+    private String patymUpiName;
+    @SerializedName("patymUpiNo")
+    @Expose
+    private String patymUpiNo;
+    @SerializedName("upiName")
+    @Expose
+    private String upiName;
+    @SerializedName("upiNo")
+    @Expose
+    private String upiNo;
+    @SerializedName("kcreationDate")
+    @Expose
+    private String kcreationDate;
+    @SerializedName("kupdatedDate")
+    @Expose
+    private String kupdatedDate;
+
+        public Settings(String appName, String appLogo, String appDescription, String appVersion, String appAuthor, String appContact,
+                        String appEmail,
+                        String appWebsite, String appDevelopedBy, String redeemCurrency,String homeBannerimg1Enabled, String homeBannerimg1,
+                        String homeBannerimg2Enabled,String homeBannerimg2, String homeBannerimg3, String onesignalappId,
+                        String onesignalappKey, String referTxt, String image, String joiningBonus, String perRefer, String minDepositcoin,
+                        String hourlyQuizCoin, String mathsQuizCoin, String maxmMathsQuestn, String hourlySpinLimit,
+                        String hourlyMathsquizLimit, String mathsQuizUnlockMin, String perNewsCoin, String minimumWidthrawal,
+                        String minRedeemAmount, String telegramlink, String youtubeLink, String facebookPage, String newVersion,
+                        String updateLink, String adminMsg, String joinGroup, String appPromo1, String appPromo2, String date,
+                        String kid, String kmobile, String userName, String bankDetailsStatus, String bankName, String bankAccNo,
+                        String bankIfsc, String bankAccHolderName, String paytmName, String paytmNo, String gPayName, String gPayNo,
+                        String phonePayName, String phonePayNo, String patymUpiName, String patymUpiNo, String upiName, String upiNo,
+                        String kcreationDate, String kupdatedDate) {
             super();
             this.appName = appName;
             this.appLogo = appLogo;
@@ -239,6 +312,26 @@ public class Settings {
             this.appPromo1 = appPromo1;
             this.appPromo2 = appPromo2;
             this.date = date;
+            this.kid = kid;
+            this.kmobile = kmobile;
+            this.userName = userName;
+            this.bankDetailsStatus = bankDetailsStatus;
+            this.bankName = bankName;
+            this.bankAccNo = bankAccNo;
+            this.bankIfsc = bankIfsc;
+            this.bankAccHolderName = bankAccHolderName;
+            this.paytmName = paytmName;
+            this.paytmNo = paytmNo;
+            this.gPayName = gPayName;
+            this.gPayNo = gPayNo;
+            this.phonePayName = phonePayName;
+            this.phonePayNo = phonePayNo;
+            this.patymUpiName = patymUpiName;
+            this.patymUpiNo = patymUpiNo;
+            this.upiName = upiName;
+            this.upiNo = upiNo;
+            this.kcreationDate = kcreationDate;
+            this.kupdatedDate = kupdatedDate;
         }
 
         public String getId() {
@@ -735,6 +828,166 @@ public class Settings {
 
     public void setHomeBannerimg2Enabled(String homeBannerimg2Enabled) {
         this.homeBannerimg2Enabled = homeBannerimg2Enabled;
+    }
+
+    public String getKid() {
+        return kid;
+    }
+
+    public void setKid(String kid) {
+        this.kid = kid;
+    }
+
+    public String getKmobile() {
+        return kmobile;
+    }
+
+    public void setKmobile(String kmobile) {
+        this.kmobile = kmobile;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getBankDetailsStatus() {
+        return bankDetailsStatus;
+    }
+
+    public void setBankDetailsStatus(String bankDetailsStatus) {
+        this.bankDetailsStatus = bankDetailsStatus;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
+    public String getBankAccNo() {
+        return bankAccNo;
+    }
+
+    public void setBankAccNo(String bankAccNo) {
+        this.bankAccNo = bankAccNo;
+    }
+
+    public String getBankIfsc() {
+        return bankIfsc;
+    }
+
+    public void setBankIfsc(String bankIfsc) {
+        this.bankIfsc = bankIfsc;
+    }
+
+    public String getBankAccHolderName() {
+        return bankAccHolderName;
+    }
+
+    public void setBankAccHolderName(String bankAccHolderName) {
+        this.bankAccHolderName = bankAccHolderName;
+    }
+
+    public String getPaytmName() {
+        return paytmName;
+    }
+
+    public void setPaytmName(String paytmName) {
+        this.paytmName = paytmName;
+    }
+
+    public String getPaytmNo() {
+        return paytmNo;
+    }
+
+    public void setPaytmNo(String paytmNo) {
+        this.paytmNo = paytmNo;
+    }
+
+    public String getgPayName() {
+        return gPayName;
+    }
+
+    public void setgPayName(String gPayName) {
+        this.gPayName = gPayName;
+    }
+
+    public String getgPayNo() {
+        return gPayNo;
+    }
+
+    public void setgPayNo(String gPayNo) {
+        this.gPayNo = gPayNo;
+    }
+
+    public String getPhonePayName() {
+        return phonePayName;
+    }
+
+    public void setPhonePayName(String phonePayName) {
+        this.phonePayName = phonePayName;
+    }
+
+    public String getPhonePayNo() {
+        return phonePayNo;
+    }
+
+    public void setPhonePayNo(String phonePayNo) {
+        this.phonePayNo = phonePayNo;
+    }
+
+    public String getPatymUpiName() {
+        return patymUpiName;
+    }
+
+    public void setPatymUpiName(String patymUpiName) {
+        this.patymUpiName = patymUpiName;
+    }
+
+    public String getPatymUpiNo() {
+        return patymUpiNo;
+    }
+
+    public void setPatymUpiNo(String patymUpiNo) {
+        this.patymUpiNo = patymUpiNo;
+    }
+
+    public String getUpiName() {
+        return upiName;
+    }
+
+    public void setUpiName(String upiName) {
+        this.upiName = upiName;
+    }
+
+    public String getUpiNo() {
+        return upiNo;
+    }
+
+    public void setUpiNo(String upiNo) {
+        this.upiNo = upiNo;
+    }
+
+    public String getKcreationDate() {
+        return kcreationDate;
+    }
+
+    public void setKcreationDate(String kcreationDate) {
+        this.kcreationDate = kcreationDate;
+    }
+
+    public String getKupdatedDate() {
+        return kupdatedDate;
+    }
+
+    public void setKupdatedDate(String kupdatedDate) {
+        this.kupdatedDate = kupdatedDate;
     }
 }
 
