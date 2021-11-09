@@ -144,6 +144,26 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
             holder.popupWindow.showAtLocation(view, Gravity.NO_GRAVITY, location[0], view.getHeight() + location[1]);
         });
 
+        holder.btnDepo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DepositIDActivity.class);
+                intent.putExtra("createId", myIdData.getId());
+                intent.putExtra("screenType", GlobalVariables.Withdraw);
+                intent.putExtra("idimageurl", myIdData.getImg());
+                intent.putExtra("idname", myIdData.getIdName());
+                intent.putExtra("idwebsite", myIdData.getIdWebsite());
+                intent.putExtra("idUserName", myIdData.getIdUsername());
+                intent.putExtra("minRefill", myIdData.getMinRefill());
+                intent.putExtra("minWithdrawal", myIdData.getMinWithdrawal());
+                intent.putExtra("minMaintainBal", myIdData.getMinMaintainBal());
+                intent.putExtra("maxWithdrawal", myIdData.getMaxWithdrawal());
+                intent.putExtra("idUsername", myIdData.getIdUsername());
+                intent.putExtra("idPassword", myIdData.getIdPassword());
+                context.startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -175,6 +195,7 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
         PopupWindow popupWindow;
         BubbleLayout bubbleLayout;
         final Random random;
+        TextView btnDepo;
 
 
         @SuppressLint("InflateParams")
@@ -192,7 +213,7 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
 
              bubbleLayout = (BubbleLayout) LayoutInflater.from(itemView.getContext()).inflate(R.layout.dialog_myid_options, null);
              popupWindow = BubblePopupHelper.create(itemView.getContext(), bubbleLayout);
-              TextView btnDepo=bubbleLayout.findViewById(R.id.pdeposit);
+               btnDepo=bubbleLayout.findViewById(R.id.pdeposit);
 
               btnDepo.setOnClickListener(new View.OnClickListener() {
                   @Override
