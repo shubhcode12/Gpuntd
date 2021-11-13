@@ -6,7 +6,7 @@
     app:bl_arrowWidth="15dp"
     app:bl_arrowHeight="12dp"
     app:bl_arrowPosition="@dimen/activity_horizontal_margin"
-    android:layout_marginEnd="30dp"
+    android:layout_marginEnd="60dp"
     android:layout_marginTop="20dp"
     android:layout_centerHorizontal="true"
     android:layout_gravity="right"
@@ -40,6 +40,7 @@
             android:layout_height="1dp"/>
 
         <TextView
+            android:id="@+id/pwithdraw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -56,6 +57,7 @@
             android:layout_height="1dp"/>
 
         <TextView
+            android:id="@+id/ptxnDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -72,6 +74,7 @@
             android:layout_height="1dp"/>
 
         <TextView
+            android:id="@+id/pchange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -88,6 +91,7 @@
             android:layout_height="1dp"/>
 
         <TextView
+            android:id="@+id/pclose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

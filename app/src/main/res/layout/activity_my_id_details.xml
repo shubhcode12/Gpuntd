@@ -26,6 +26,8 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
+
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,7 +35,7 @@
             android:layout_marginTop="20dp"
             android:padding="10dp">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/ivIdDetails"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -119,7 +121,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="2dp"
             app:cardBackgroundColor="@color/cardBgColor"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp"
@@ -156,6 +158,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/idBalance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -200,7 +203,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -213,6 +216,15 @@
                 android:layout_height="1dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/colorPrimary" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMyIdDetails"
+                android:visibility="visible"
+                tools:listitem="@layout/adapter_myiddetails_item"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rvMyID"
+                android:background="#0e0c0d" />
 
 <!--            <RelativeLayout-->
 <!--                android:layout_width="wrap_content"-->

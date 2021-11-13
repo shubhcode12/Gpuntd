@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.util.Log;
 import android.view.Gravity;
@@ -31,6 +32,7 @@ import com.gpuntd.app.DepositActivity;
 import com.gpuntd.app.DepositIDActivity;
 import com.gpuntd.app.Models.Create_ID_Data;
 import com.gpuntd.app.Models.My_ID_Data;
+import com.gpuntd.app.MyIdDetailsActivity;
 import com.gpuntd.app.R;
 import com.gpuntd.app.Util.GlobalVariables;
 import com.gpuntd.app.WithdrawDetailsActivity;
@@ -67,16 +69,16 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-      final   My_ID_Data myIdData = myId_data.get(position);
+        final My_ID_Data myIdData = myId_data.get(position);
 
 
-        if (myIdData.getIdStatus().equals("1"))  {
-           // holder.idName.setTextColor(ContextCompat.getColor(context, R.color.red));
+        if (myIdData.getIdStatus().equals("1")) {
+            // holder.idName.setTextColor(ContextCompat.getColor(context, R.color.red));
             holder.idName.setText(myIdData.getIdUsername());
-           holder.idWebsite.setText(myIdData.getIdWebsite());
+            holder.idWebsite.setText(myIdData.getIdWebsite());
 
-            if(!myIdData.getImg().equals("")) {
-                Log.d("KINGSN", "onBindViewHolder: "+myIdData.getImg());
+            if (!myIdData.getImg().equals("")) {
+                Log.d("KINGSN", "onBindViewHolder: " + myIdData.getImg());
                 Glide.with(context)
                         .load(myIdData.getImg())
                         .placeholder(R.drawable.round_bg)
@@ -139,7 +141,7 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
             if (holder.random.nextBoolean()) {
                 holder.bubbleLayout.setArrowDirection(ArrowDirection.TOP_RIGHT);
             } else {
-               // holder.bubbleLayout.setArrowDirection(ArrowDirection.BOTTOM);
+                // holder.bubbleLayout.setArrowDirection(ArrowDirection.BOTTOM);
             }
             holder.popupWindow.showAtLocation(view, Gravity.NO_GRAVITY, location[0], view.getHeight() + location[1]);
         });
@@ -149,7 +151,7 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
             public void onClick(View v) {
                 Intent intent = new Intent(context, DepositIDActivity.class);
                 intent.putExtra("createId", myIdData.getId());
-                intent.putExtra("screenType", GlobalVariables.Withdraw);
+                intent.putExtra("screenType", GlobalVariables.Deposit);
                 intent.putExtra("idimageurl", myIdData.getImg());
                 intent.putExtra("idname", myIdData.getIdName());
                 intent.putExtra("idwebsite", myIdData.getIdWebsite());
@@ -163,7 +165,39 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
                 context.startActivity(intent);
             }
         });
-
+        holder.pwithdraw.setOnClickListener(view -> {
+            Intent intent = new Intent(context, DepositIDActivity.class);
+            intent.putExtra("createId", myIdData.getId());
+            intent.putExtra("screenType", GlobalVariables.Withdraw);
+            intent.putExtra("idimageurl", myIdData.getImg());
+            intent.putExtra("idname", myIdData.getIdName());
+            intent.putExtra("idwebsite", myIdData.getIdWebsite());
+            intent.putExtra("idUserName", myIdData.getIdUsername());
+            intent.putExtra("minRefill", myIdData.getMinRefill());
+            intent.putExtra("minWithdrawal", myIdData.getMinWithdrawal());
+            intent.putExtra("minMaintainBal", myIdData.getMinMaintainBal());
+            intent.putExtra("maxWithdrawal", myIdData.getMaxWithdrawal());
+            intent.putExtra("idUsername", myIdData.getIdUsername());
+            intent.putExtra("idPassword", myIdData.getIdPassword());
+            context.startActivity(intent);
+        });
+        holder.ptxnDetails.setOnClickListener(view -> {
+            Intent intent = new Intent(context, MyIdDetailsActivity.class);
+            intent.putExtra("screenType", GlobalVariables.Withdraw);
+            intent.putExtra("createId", myIdData.getId());
+            intent.putExtra("idimageurl", myIdData.getImg());
+            intent.putExtra("idname", myIdData.getIdName());
+            intent.putExtra("idwebsite", myIdData.getIdWebsite());
+            intent.putExtra("idBalance", myIdData.getIdBalance());
+            intent.putExtra("idUserName", myIdData.getIdUsername());
+            intent.putExtra("minRefill", myIdData.getMinRefill());
+            intent.putExtra("minWithdrawal", myIdData.getMinWithdrawal());
+            intent.putExtra("minMaintainBal", myIdData.getMinMaintainBal());
+            intent.putExtra("maxWithdrawal", myIdData.getMaxWithdrawal());
+            intent.putExtra("idUsername", myIdData.getIdUsername());
+            intent.putExtra("idPassword", myIdData.getIdPassword());
+            context.startActivity(intent);
+        });
 
     }
 
@@ -195,7 +229,10 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
         PopupWindow popupWindow;
         BubbleLayout bubbleLayout;
         final Random random;
-        TextView btnDepo;
+        TextView btnDepo,pclose;
+        TextView pwithdraw;
+        TextView ptxnDetails;
+        TextView pchange;
 
 
         @SuppressLint("InflateParams")
@@ -214,13 +251,14 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
              bubbleLayout = (BubbleLayout) LayoutInflater.from(itemView.getContext()).inflate(R.layout.dialog_myid_options, null);
              popupWindow = BubblePopupHelper.create(itemView.getContext(), bubbleLayout);
                btnDepo=bubbleLayout.findViewById(R.id.pdeposit);
+                pchange=bubbleLayout.findViewById(R.id.pchange);
+                pwithdraw=bubbleLayout.findViewById(R.id.pwithdraw);
+                ptxnDetails=bubbleLayout.findViewById(R.id.ptxnDetails);
+                pclose=bubbleLayout.findViewById(R.id.pclose);
 
-              btnDepo.setOnClickListener(new View.OnClickListener() {
-                  @Override
-                  public void onClick(View v) {
 
-                  }
-              });
+
+
 
             /*tvDemoID=itemView.findViewById(R.id.tvDemoID);
             tvDemoPass=itemView.findViewById(R.id.tvDemoPass);

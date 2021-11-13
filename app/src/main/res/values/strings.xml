@@ -54,4 +54,6 @@
     <string name="ok_message">ok</string>
     <string name="add_new">Add New</string>
     <string name="edit">Edit</string>
+    <string name="idPasswordChange">Request ID\'s Password</string>
+    <string name="confirmationPassword">Are You sure you want to request for \n new ID password?</string>
 </resources>
