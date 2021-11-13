@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -27,9 +28,11 @@ import com.daasuu.bl.ArrowDirection;
 import com.daasuu.bl.BubbleLayout;
 import com.daasuu.bl.BubblePopupHelper;
 import com.google.android.material.textfield.TextInputEditText;
+import com.gpuntd.app.CloseIdActivity;
 import com.gpuntd.app.CreateIdActivity;
 import com.gpuntd.app.DepositActivity;
 import com.gpuntd.app.DepositIDActivity;
+import com.gpuntd.app.MainActivity;
 import com.gpuntd.app.Models.Create_ID_Data;
 import com.gpuntd.app.Models.My_ID_Data;
 import com.gpuntd.app.MyIdDetailsActivity;
@@ -197,6 +200,32 @@ public class MyDataAdapter extends RecyclerView.Adapter<MyDataAdapter.MyViewHold
             intent.putExtra("idUsername", myIdData.getIdUsername());
             intent.putExtra("idPassword", myIdData.getIdPassword());
             context.startActivity(intent);
+        });
+
+        holder.pchange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                View root = LayoutInflater.from(context).inflate(R.layout.dialog_change_password, view.findViewById(R.id.requestIdPassView));
+                builder.setView(root);
+                final AlertDialog alertDialog = builder.create();
+                Button btnRequest = root.findViewById(R.id.btnRequestConfirm);
+                btnRequest.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(context, "Id Name : " + myIdData.getIdName(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                if (alertDialog.getWindow() != null){
+                    alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+                }
+                alertDialog.show();
+            }
+        });
+
+        holder.pclose.setOnClickListener(view -> {
+            context.startActivity(new Intent(context, CloseIdActivity.class));
         });
 
     }
